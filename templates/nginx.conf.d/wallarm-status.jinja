@@ -1,0 +1,15 @@
+{% set config = pillar['wallarm']['nginx']['status'] %}
+
+# wallarm-status, required for monitoring purposes.
+
+{% if config %}
+  server {
+    {% for name, value in config.items() %}
+      {{ name }} {{ value }};
+    {% endfor %}
+
+    location /wallarm-status {
+      wallarm_status on;
+    }
+  }
+{% endif %}

@@ -1,0 +1,9 @@
+{% set config = pillar['wallarm']['tarantool']['config'] %}
+
+{% for name, value in config.items() %}
+  {% if value is string %}
+{{ name }}='{{ value }}'
+  {% else %}
+{{ name }}={{ value }}
+  {% endif %}
+{% endfor %}

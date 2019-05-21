@@ -1,0 +1,14 @@
+{% set config = pillar['wallarm']['nginx']['wallarm'] %}
+{% set upstream = pillar['wallarm']['nginx']['tarantool-upstream'] %}
+
+upstream wallarm_tarantool {
+  {% for name, value in upstream.items() %}
+    {{ name }} {{ value }};
+  {% endfor %}
+}
+
+wallarm_tarantool_upstream wallarm_tarantool;
+
+{% for name, value in config.items() %}
+  {{ name }} {{ value }};
+{% endfor %}
