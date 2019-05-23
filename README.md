@@ -1,7 +1,7 @@
 Wallarm SaltStack formula
 =========================
 
-Deploy Wallarm WAF nginx module with SaltStack
+Deploy Wallarm WAF nginx module and tarantool server with SaltStack
 
 **Tested on Debian 9**. It may not work on other systems.
 
